@@ -2,6 +2,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { useState } from 'react';
 import Register from './components/Register';
+import Effect from './components/Effect';
 
 function App() {
 
@@ -25,7 +26,8 @@ function App() {
       {/* <button onClick={ () => increment() }>+</button>
       <button  onClick={ () => decrement() }>-</button> */}
       {/* <button onClick={() => toChange()}>Change to False</button> */} 
-      <Register/>
+      {/* <Register/> */}
+      <Effect/>
     </div>
   );
 }
