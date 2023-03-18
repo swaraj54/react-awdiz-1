@@ -3,6 +3,9 @@ import Footer from './components/Footer';
 import { useState } from 'react';
 import Register from './components/Register';
 import Effect from './components/Effect';
+import { Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
+import Login from './components/Login';
 
 function App() {
 
@@ -27,7 +30,13 @@ function App() {
       <button  onClick={ () => decrement() }>-</button> */}
       {/* <button onClick={() => toChange()}>Change to False</button> */} 
       {/* <Register/> */}
-      <Effect/>
+      {/* <Effect/> */}
+
+      <Routes>
+        <Route excat path='/' element={<Home/>} />
+        <Route excat path='/register' element={<Register/>} />
+        <Route excat path='/login' element={<Login/>} />
+      </Routes>
     </div>
   );
 }
@@ -36,3 +45,4 @@ export default App;
 // npx create-react-app yourAppName
 // cd yourAppName
 // npm start 
+// npm i react-router-dom

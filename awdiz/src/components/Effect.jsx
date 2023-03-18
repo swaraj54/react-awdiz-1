@@ -6,7 +6,7 @@ const Effect = () => {
     const [number2, setNumber2] = useState(0)
     const [products, setProducts] = useState();
     console.log(products, 'products heree')
-    // useEffect(() => { alert("Working !") })
+    useEffect(() => { alert("Working !") })
     // will execute the code on every render 
 
     useEffect(() => {
@@ -19,10 +19,10 @@ const Effect = () => {
     }, [])
     // Will execute the code ONLY Very first time
 
-    // useEffect(() => { alert("Will execute the code when state changes") }, [number])
+    useEffect(() => { alert("Will execute the code when state changes") }, [number])
     // Will execute the code very first time & when the specific state will changes
 
-    // useEffect(()=> {alert("For multiple states")}, [number,number2])
+    useEffect(()=> {alert("For multiple states")}, [number,number2])
     // will execute the code very first time & for multiple states that we passed
 
     return (
@@ -32,8 +32,8 @@ const Effect = () => {
             <button onClick={() => setNumber(number + 1)}>Click</button>
             <button onClick={() => setNumber2(number2 + 1)}>Click for 1</button> */}
             <div id="products">
-                {products && products.map((e) => (
-                    <div>
+                {products && products.map((e,i) => (
+                    <div key={i}>
                         <img src={e.image} />
                         <h1>{e.title}</h1>
                         <p>{e.price}</p>
@@ -41,8 +41,6 @@ const Effect = () => {
                     </div>))
                 }
             </div>
-
-
         </>
     )
 }
