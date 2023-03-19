@@ -1,9 +1,13 @@
 import { useState } from "react";
+import  {  useNavigate } from 'react-router-dom'
 
 function Register() {
     const [userData, setUserData] = useState({ name: "", email: "", password: "" });
-    
+    const router =  useNavigate();
     // console.log(userData,"userData check here");
+    function sendUser() {
+        router('/login')
+    }
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -12,6 +16,7 @@ function Register() {
         usersFromDB.push(userData);
         localStorage.setItem("userForReact", JSON.stringify(usersFromDB));
         setUserData({ name: "", email: "", password: "" })
+        router('/login')
         alert("Registration Done...")
     }
     function updatingData(e) {
@@ -22,6 +27,7 @@ function Register() {
     }
     return (
         <div>
+            <button onClick={ () => sendUser()}>TO lgoin</button>
             <form onSubmit={(event) => handleSubmit(event)}>
                 <label>Name</label><br />
                 <input onChange={updatingData} name='name' value={userData.name || "" } type="text" placeholder="Type your Name" /><br />
@@ -32,6 +38,7 @@ function Register() {
                 <input type="submit" value="Register" />
             </form>
         </div>
+
     )
 }
 export default Register;
