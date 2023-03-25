@@ -1,9 +1,17 @@
-import React from 'react'
+import { useEffect, useState } from "react";
 
-const Home = () => {
+function Home(){
+  const [myName, setMyName] = useState("om");
+  const [myEmail, setMyEmail] = useState("");
+  console.log(myName,"myName")
+
+
   return (
-    <div>Home</div>
+    <div>
+      <h1>Home page {myName}</h1>
+      <button onClick={()=>setMyName("rehmat")}>Click to chnge name</button>
+    </div>
   )
 }
 
-export default Home
+export default Home; 

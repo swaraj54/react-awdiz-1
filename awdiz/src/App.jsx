@@ -1,48 +1,32 @@
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import { useState } from 'react';
-import Register from './components/Register';
-import Effect from './components/Effect';
-import { Route, Routes } from 'react-router-dom';
-import Home from './components/Home';
-import Login from './components/Login';
+import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 function App() {
-
-  // var myNumber = 10;
-  // myNumber = 20;
-
-  // const [name, setName] = useState("true");
-  // console.log(name, "name")
-  // function increment() {
-  //   setName(name + 1)
-  // }
-  // function decrement() {
-  //   setName(name - 1)
-  // }
-  // function toChange() {
-  //   setName("false");
-  // }
+  const [currentUser, setCurrentUser] = useState(false);
+  console.log(currentUser)
+  const router = useNavigate();
+  useEffect(() => {
+    var currentUserFromLS = JSON.parse(localStorage.getItem("current-user"));
+    console.log(currentUserFromLS, "hii")
+    if (currentUserFromLS) {
+      setCurrentUser(true);
+    }
+  }, [])
+  function logout() {
+    localStorage.removeItem("current-user");
+    toast.success("Logout successfull !");
+    setCurrentUser(false);
+  }
   return (
-    <div className="App">
-      {/* <h1>Initital Value {name} </h1>
-      {/* <button onClick={ () => increment() }>+</button>
-      <button  onClick={ () => decrement() }>-</button> */}
-      {/* <button onClick={() => toChange()}>Change to False</button> */} 
-      {/* <Register/> */}
-      {/* <Effect/> */}
-
-      <Routes>
-        <Route excat path='/' element={<Home/>} />
-        <Route excat path='/register' element={<Register/>} />
-        <Route excat path='/login' element={<Login/>} />
-      </Routes>
-    </div>
-  );
+    <>
+      <div>
+        <button onClick={()=> toast.error("WOkring!")}>Toawst</button>
+        {/* {currentUser && <button>Logout</button>}
+      {!currentUser && <button >Login</button>} */}
+        {currentUser ? <button onClick={logout} >Logout</button> : <button onClick={() => router('/login')}>Login</button>}
+      </div>
+    </>
+  )
 }
-export default App;
-
-// npx create-react-app yourAppName
-// cd yourAppName
-// npm start 
-// npm i react-router-dom
+export default App
