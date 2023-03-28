@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
+import Navbar from "./Navbar";
 
-function Home(){
-  const [myName, setMyName] = useState("om");
-  const [myEmail, setMyEmail] = useState("");
-  console.log(myName,"myName")
+function Home() {
 
+  
 
   return (
     <div>
-      <h1>Home page {myName}</h1>
-      <button onClick={()=>setMyName("rehmat")}>Click to chnge name</button>
-    </div>
+      <Navbar />
+      Home page
+     </div>
   )
 }
 

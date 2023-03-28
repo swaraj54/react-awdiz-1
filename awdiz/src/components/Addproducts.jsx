@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-const Addproducts = () => {
+const Addproducts = ({userData}) => {
+    console.log(userData,'userData')
     const [product, setProduct] = useState({ pName: "", pImage: "", pNumber: "" });
 
     function handleSubmit(e) {
