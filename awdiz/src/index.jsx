@@ -42,7 +42,6 @@ root.render(
       <UserContext.Provider value={"sneha"}>
         <App />
       </UserContext.Provider>
-
     </BrowserRouter>
   </React.StrictMode>
 );
