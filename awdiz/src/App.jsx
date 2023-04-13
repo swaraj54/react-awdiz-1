@@ -6,6 +6,8 @@ import { Route, Routes } from "react-router-dom";
 import Allproducts from "./components/Allproducts";
 import SingleProductPage from "./components/SingleProductPage";
 import Search from "./components/Search";
+import Test from "./components/Test";
+import Callback from "./components/Callback";
 
 
 
@@ -18,6 +20,8 @@ function App() {
         <Route exact path='/allproducts' element={<Allproducts />} />
         <Route exact path='/allproducts/:id' element={<SingleProductPage />} />
         <Route exact path='/search/:name' element={<Search />} />
+        <Route exact path='/test' element={<Test />} />
+        <Route exact path='/callback' element={<Callback />} />
       </Routes>
     </>
   )
