@@ -7,6 +7,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { createContext } from 'react';
 
+import AuthProvider from './context/AuthContext';
+
 
 const UserContext = createContext();
 
@@ -40,7 +42,9 @@ root.render(
         }}
       />
       <UserContext.Provider value={"sneha"}>
-        <App />
+        <AuthProvider>
+          <App />
+        </AuthProvider>
       </UserContext.Provider>
     </BrowserRouter>
   </React.StrictMode>
