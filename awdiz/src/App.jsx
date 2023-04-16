@@ -10,8 +10,7 @@ import Test from "./components/Test";
 import Callback from "./components/Callback";
 import Reducer from "./components/Reducer";
 import DecrementAge from "./components/DecrementAge";
-
-
+import LoginText from "./components/LoginText";
 
 function App() {
 
@@ -19,6 +18,7 @@ function App() {
     <>
       <Routes>
         <Route exact path='/' element={<Home />} />
+        <Route exact path='/logintest' element={<LoginText />} />
         <Route exact path='/dec-age' element={<DecrementAge />} />
         <Route exact path='/red' element={<Reducer />} />
         <Route exact path='/allproducts' element={<Allproducts />} />

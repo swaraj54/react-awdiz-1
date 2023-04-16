@@ -5,47 +5,46 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import { createContext } from 'react';
+// import { createContext } from 'react';
 
 import AuthProvider from './context/AuthContext';
 
-
-const UserContext = createContext();
-
+// const UserContext = createContext();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Toaster
-        position="top-center"
-        reverseOrder={false}
-        gutter={8}
-        containerClassName=""
-        containerStyle={{}}
-        toastOptions={{
-          // Define default options
-          className: '',
-          duration: 5000,
-          style: {
-            background: '#363636',
-            color: '#fff',
-          },
 
-          // Default options for specific types
-          success: {
-            duration: 3000,
-            theme: {
-              primary: 'green',
-              secondary: 'black',
+      <AuthProvider>
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+          gutter={8}
+          containerClassName=""
+          containerStyle={{}}
+          toastOptions={{
+            // Define default options
+            className: '',
+            duration: 5000,
+            style: {
+              background: '#363636',
+              color: '#fff',
             },
-          },
-        }}
-      />
-      <UserContext.Provider value={"sneha"}>
-        <AuthProvider>
-          <App />
-        </AuthProvider>
-      </UserContext.Provider>
+
+            // Default options for specific types
+            success: {
+              duration: 3000,
+              theme: {
+                primary: 'green',
+                secondary: 'black',
+              },
+            },
+          }}
+        />
+        {/* <UserContext.Provider value={"sneha"}> */}
+        <App />
+      </AuthProvider>
+      {/* </UserContext.Provider> */}
     </BrowserRouter>
   </React.StrictMode>
 );
@@ -55,4 +54,4 @@ root.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-export default UserContext;
+// export default UserContext;
